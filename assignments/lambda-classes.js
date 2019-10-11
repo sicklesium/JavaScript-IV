@@ -1,6 +1,8 @@
 // CODE here for your Lambda Classes
 
-const subject = ['Python', 'Javascript', 'CSS', 'LESS', 'HTML', 'Node', 'Java', 'OOP']
+const subject = ['Python', 'Javascript', 'CSS', 'LESS', 'HTML', 'Node', 'Java', 'OOP', 'Ruby']
+
+// Classes
 
 class Person {
   constructor(attrs) {
@@ -53,10 +55,9 @@ class Student extends Person {
 }
 
 class TeamLead extends Instructor {
-  constrcutor(tlAttrs) {
-    super(tlAttrs);
-    this.gradClassName = tlAttrs.gradClassName;
-    this.favInstructor = tlAttrs.favInstructor;
+  constrcutor(teamAttrs) {
+    this.gradClassName = teamAttrs.gradClassName;
+    this.favInstructor = teamAttrs.favInstructor;
   }
 
   standUp(channel) {
@@ -67,3 +68,96 @@ class TeamLead extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}.`
   }
 }
+
+// Objects
+
+// Instructors
+
+const jaiden = new Instructor({
+  name: 'Jaiden Shah',
+  age: 37,
+  location: 'Omaha, Nebraska',
+  specialty: 'Front-end',
+  favLanguage: 'Ruby',
+  catchPhrase: 'Ruby - first class!'
+});
+
+const estelle = new Instructor({
+  name: 'Estelle Woods',
+  age: 29,
+  location: 'Baton Rouge, Louisiana',
+  specialty: 'Back-end',
+  favLanguage: 'Javascript',
+  catchPhrase: 'I\'m going places.'
+});
+
+const kerys = new Instructor({
+  name: 'Kerys Bate',
+  age: 29,
+  location: 'Boston, Massachusetts',
+  specialty: 'Debugging',
+  favLanguage: 'CSS',
+  catchPhrase: 'Programming is my sport.'
+});
+
+// Students
+
+const tatiana = new Student({
+  name: 'Tatiana Quintana',
+  age: 19,
+  location: 'Oakland, California',
+  previousBackground: 'Barista',
+  className: 'WEBPT11',
+  favSubjects: ['Javascript', 'Node', 'CSS']
+});
+
+const reese = new Student({
+  name: 'Reese Dupont',
+  age: 25,
+  location: 'Baltimore, Maryland',
+  previousBackground: 'Fast food worker',
+  className: 'WEBPT11',
+  favSubjects: ['LESS', 'Computer Science', 'Ruby']
+});
+
+// Team Leads
+
+const chloe = new TeamLead({
+  name: 'Chloe Leblanc',
+  age: 27,
+  location: 'Houston, Texas',
+  specialty: 'Front-end',
+  favLanguage: 'CSS',
+  catchPhrase: 'Let\'s make people successful in a changing world.',
+  gradClassName: 'WEB4',
+  favInstructor: 'Estelle'
+});
+
+const jayce = new TeamLead({
+  name: 'Jayce Webster',
+  age: 54,
+  location: 'San Diego, California',
+  specialty: 'Back-end',
+  favLanguage: 'Java',
+  catchPhrase: 'I\'m what the world is waiting for.',
+  gradClassName: 'WEB7',
+  favInstructor: 'Kerys'
+});
+
+// Console Logs
+
+console.log(jaiden.speak());
+console.log(estelle.speak());
+console.log(kerys.speak());
+console.log(tatiana.speak());
+console.log(reese.speak());
+
+console.log(estelle.demo(subject[3]));
+console.log(kerys.grade(tatiana, subject[2]));
+
+console.log(reese.listSubjects());
+console.log(reese.PRAssignment(subject[subject.length - 1]));
+console.log(tatiana.sprintChallenge(subject[subject.length - 3]));
+
+console.log(chloe.standUp('webpt11_chloe'));
+console.log(jayce.debugsCode(reese, subject[4]));
